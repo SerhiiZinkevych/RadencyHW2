@@ -8,12 +8,14 @@ export default function CreateBtn() {
   const handleCloseModal = () => setShowModal(false);
   return (
     <>
-      <ModalForm
-        title="Create new note"
-        handleCloseModal={handleCloseModal}
-        note={undefined}
-        showModal={showModal}
-      />
+      {showModal && (
+        <ModalForm
+          title="Create new note"
+          handleCloseModal={handleCloseModal}
+          note={undefined}
+          showModal={showModal}
+        />
+      )}
       <button className="btn-create" onClick={handleShowModal}>
         Create note
       </button>
