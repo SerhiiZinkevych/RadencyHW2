@@ -56,7 +56,7 @@ export default function NotesTable() {
             {notes.map((note) => (
               <tr key={note.id}>
                 <td>
-                  <i className={['fa-solid', note.icon].join(' ')}></i>
+                  <i className={`fa-solid ${note.icon}`}></i>
                 </td>
                 <td>{note.name}</td>
                 <td>{note.created}</td>
