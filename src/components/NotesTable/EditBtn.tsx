@@ -13,12 +13,14 @@ export default function EditBtn({ note }: { note: INote }) {
       <td onClick={handleShowModal}>
         <i className="fa-solid fa-pencil"></i>
       </td>
-      <ModalForm
-        title="Edit note"
-        handleCloseModal={handleCloseModal}
-        note={note}
-        showModal={showModal}
-      />
+      {showModal && (
+        <ModalForm
+          title="Edit note"
+          handleCloseModal={handleCloseModal}
+          note={note}
+          showModal={showModal}
+        />
+      )}
     </>
   );
 }

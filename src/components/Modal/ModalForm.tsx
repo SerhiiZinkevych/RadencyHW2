@@ -40,12 +40,6 @@ export default function ModalWindow({
     target: { value },
   }: ChangeEvent<HTMLInputElement>) => setContent(value);
 
-  const resetForm = () => {
-    setName('');
-    setCategoryId(1);
-    setContent('');
-  };
-
   const handleSaveChanges = () => {
     if (note) {
       dispatch(editNote({ ...note, name, categoryId, content }));
@@ -63,22 +57,14 @@ export default function ModalWindow({
       };
 
       dispatch(addNote(newNote));
-      resetForm();
     }
 
-    handleCloseModal();
-  };
-
-  const handleCloseForm = () => {
-    if (!note) {
-      resetForm();
-    }
     handleCloseModal();
   };
 
   return (
     <>
-      <Modal show={showModal} onHide={handleCloseForm} backdrop="static">
+      <Modal show={showModal} onHide={handleCloseModal} backdrop="static">
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
@@ -123,7 +109,7 @@ export default function ModalWindow({
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseForm}>
+          <Button variant="secondary" onClick={handleCloseModal}>
             Close
           </Button>
           <Button variant="primary" onClick={handleSaveChanges}>
