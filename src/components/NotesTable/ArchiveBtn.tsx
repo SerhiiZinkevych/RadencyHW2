@@ -13,8 +13,6 @@ export default function ArchiveBtn({ note }: { note: INote }) {
 
   const handleConfirm = () => {
     dispatch(archiveNote(Number(note.id)));
-    console.log(note.id);
-
     handleCloseModal();
   };
 
